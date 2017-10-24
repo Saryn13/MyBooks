@@ -9,12 +9,25 @@ namespace MyBooks
 {
     public partial class App : Application
     {
+        public static string _dbPath=string.Empty;
         public App()
         {
             InitializeComponent();
 
             MainPage = new NavigationPage(new MainPage());
         }
+
+
+        public App(string dbPath)
+        {
+            
+            InitializeComponent();
+
+            _dbPath = dbPath;
+
+            MainPage = new NavigationPage(new MainPage());
+        }
+
 
         protected override void OnStart()
         {
