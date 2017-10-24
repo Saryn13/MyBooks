@@ -24,6 +24,8 @@ namespace MyBooks
         {
             //DisplayAlert("Success", "We have handled the click EVnet", "Cancel");
             goToScan();
+
+
         }
 
 
@@ -48,14 +50,28 @@ namespace MyBooks
 
             await Navigation.PushAsync(scanPage);
 
-
-
-
-
-
-
         }
 
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+
+            Games game = new Games()
+            {
+                Name = nameEntry.Text,
+                Publisher = publisherEntry.Text
+                //Named=nameentr
+            };
+            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App._dbPath))
+            {
+                conn.CreateTable<Games>();
+                var numberofRows = conn.Insert(game);
+
+                if (numberofRows > 0)
+                    DisplayAlert("Success", "Game succesfully inserted", "Great");
+                else
+                    DisplayAlert("Failure", "Game failed to be inserted", "Dang it!");
+            }
+        }
 
     }
 }

@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyBooks.NewBookPage">
     <StackLayout Margin="10,10,10,0" >
-        <Entry Placeholder="Write the name of the book"/>
-        <Entry  Placeholder="Write the author of the book"/>
+        <Entry x:Name="nameEntry"  Placeholder= "Write the name of the game"/>
+        <Entry  x:Name="publisherEntry" Placeholder="Write the publisher of the game"/>
         <Button Text="Scan" Clicked="Button_Clicked"/>
-        
+        <Button Text="Insert" Clicked="Button_Clicked_1"/>
        
     </StackLayout>
 </ContentPage>
